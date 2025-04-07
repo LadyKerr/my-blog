@@ -1,9 +1,10 @@
 ---
+const { pathname } = Astro.url;
 const menuItems = [
-    { text: "Home", href: "/", active: true },
-    { text: "About", href: "/about" },
-    { text: "Newsletter", href: "/newsletter" },
-    { text: "Contact", href: "/contact" }
+    { text: "Home", href: "/", active: pathname === "/" },
+    { text: "About", href: "/about", active: pathname === "/about" },
+    { text: "Newsletter", href: "/newsletter", active: pathname === "/newsletter" },
+    { text: "Contact", href: "/contact", active: pathname === "/contact" }
 ];
 ---
 <nav>
