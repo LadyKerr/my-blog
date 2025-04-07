@@ -1,9 +1,11 @@
 ---
 ---
 <section class="hero">
-    <div class="hero-content">
-        <h1>Sharing My Developer Journey</h1>
-        <p>Tutorials, insights, and lessons learned as a software developer</p>
+    <div class="container">
+        <div class="hero-content">
+            <h1>Sharing My Developer Journey</h1>
+            <p>Tutorials, insights, and lessons learned as a software developer</p>
+        </div>
     </div>
     <div class="hero-background"></div>
 </section>
@@ -11,20 +13,27 @@
 <style>
     .hero {
         position: relative;
-        min-height: 400px;
+        min-height: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
         overflow: hidden;
-        padding: 8rem 2rem 6rem;
+        padding: 6rem 2rem 4rem;
         margin-bottom: 2rem;
     }
 
-    .hero-content {
+    .container {
         position: relative;
         z-index: 2;
         max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
     }
 
     .hero-background {
@@ -50,36 +59,34 @@
     }
 
     h1 {
-        font-size: 4rem;
+        font-size: 2.5rem;
         font-weight: 800;
         color: white;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         line-height: 1.2;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     p {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         color: white;
         opacity: 0.9;
-        max-width: 600px;
-        margin: 0 auto;
         line-height: 1.6;
     }
 
     @media (max-width: 768px) {
         .hero {
-            padding: 7rem 1rem 5rem;
-            min-height: 350px;
+            padding: 5rem 1rem 3rem;
+            min-height: 280px;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
         }
 
         p {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
         }
     }
 </style>
