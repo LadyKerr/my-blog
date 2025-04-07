@@ -1,5 +1,42 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import PostCard from '../components/PostCard.astro';
+import Hero from '../components/Hero.astro';
 
+const posts = [
+    {
+        title: "Building a Custom React Hook for Managing API Data",
+        description: "Learn how to create a reusable hook for fetching, caching, and managing API data in your React applications.",
+        date: "April 2, 2025",
+        image: "https://placehold.co/800x500",
+        tags: [
+            { name: "React", class: "react" },
+            { name: "JavaScript", class: "javascript" }
+        ],
+        url: "/posts/react-hook"
+    },
+    {
+        title: "Mastering CSS Grid: Advanced Layout Techniques",
+        description: "Dive deep into CSS Grid and learn how to create complex, responsive layouts with minimal code.",
+        date: "March 28, 2025",
+        tags: [
+            { name: "CSS", class: "css" },
+            { name: "Tutorials", class: "tutorials" }
+        ],
+        image: "https://placehold.co/800x500",
+        url: "/posts/css-grid"
+    },
+    {
+        title: "Understanding JavaScript Promises and Async/Await",
+        description: "A comprehensive guide to working with asynchronous code in JavaScript using modern syntax.",
+        date: "March 20, 2025",
+        tags: [
+            { name: "JavaScript", class: "javascript" }
+        ],
+        image: "https://placehold.co/800x500",
+        url: "/posts/javascript-promises"
+    }
+];
 ---
 
 <html lang="en">
@@ -8,9 +45,35 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>DevBlog - Developer Journey</title>
+		<link rel="stylesheet" href="/styles/global.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<header>
+			<Navigation />
+		</header>
+
+		<main>
+			<Hero />
+
+			<section class="latest-posts">
+				<h2>Latest Posts</h2>
+				<div class="tags">
+					<span class="tag react">React</span>
+					<span class="tag javascript">JavaScript</span>
+					<span class="tag css">CSS</span>
+					<span class="tag tutorials">Tutorials</span>
+				</div>
+				
+				<div class="posts-grid">
+					{posts.map(post => (
+						<PostCard {...post} />
+					))}
+				</div>
+			</section>
+		</main>
 	</body>
 </html>

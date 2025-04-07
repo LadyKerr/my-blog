@@ -1,0 +1,33 @@
+---
+interface Tag {
+    name: string;
+    class: string;
+}
+
+interface Props {
+    title: string;
+    description: string;
+    date: string;
+    image: string;
+    tags: Tag[];
+    url: string;
+}
+
+const { title, description, date, image, tags, url } = Astro.props;
+---
+<article class="post-card">
+    <img src={image} alt={title} />
+    <div class="post-content">
+        <div class="post-tags">
+            {tags.map(tag => (
+                <span class={`tag ${tag.class}`}>{tag.name}</span>
+            ))}
+        </div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <div class="post-meta">
+            <span class="date">{date}</span>
+            <a href={url} class="read-more">Read More</a>
+        </div>
+    </div>
+</article>

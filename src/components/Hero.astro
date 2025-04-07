@@ -1,0 +1,67 @@
+---
+---
+<section class="hero">
+    <h1>Sharing My Developer Journey</h1>
+    <p>Tutorials, insights, and lessons learned as a software developer</p>
+</section>
+
+<style>
+    .hero {
+        background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+        transform: skewY(-5deg);
+        transform-origin: top right;
+    }
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 1.5rem;
+        position: relative;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        line-height: 1.2;
+    }
+
+    p {
+        font-size: 1.5rem;
+        color: white;
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            min-height: 300px;
+            padding: 3rem 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    }
+</style>
