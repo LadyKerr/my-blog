@@ -9,6 +9,12 @@ interface Props {
 }
 
 const { title, description, date, image, tags, href } = Astro.props;
+
+// Helper function to get tag class name
+const getTagClass = (tag: string) => {
+    const tagLower = tag.toLowerCase();
+    return `tag-${tagLower}`;
+};
 ---
 <article class="post-card">
     <div class="post-image">
@@ -17,7 +23,7 @@ const { title, description, date, image, tags, href } = Astro.props;
     <div class="post-content">
         <div class="post-tags">
             {tags.map(tag => (
-                <span class="tag">{tag}</span>
+                <span class={`tag ${getTagClass(tag)}`}>{tag}</span>
             ))}
         </div>
         <h2>{title}</h2>
@@ -88,9 +94,32 @@ const { title, description, date, image, tags, href } = Astro.props;
         font-weight: 500;
     }
 
-    .tag:nth-of-type(1) { background: #E0F2FE; color: #0369A1; }
-    .tag:nth-of-type(2) { background: #FCE7F3; color: #BE185D; }
-    .tag:nth-of-type(3) { background: #ECFCCB; color: #3F6212; }
+    /* Tag-specific colors - matching the filter buttons exactly */
+    .tag-react {
+        background: #3B82F6;
+        color: white;
+    }
+
+    .tag-javascript {
+        background: #FEF3C7;
+        color: #B45309;
+    }
+
+    .tag-css {
+        background: #F3E8FF;
+        color: #6B21A8;
+    }
+
+    .tag-tutorials {
+        background: #ECFCCB;
+        color: #3F6212;
+    }
+
+    /* Default tag style if none of the above match */
+    .tag {
+        background: #EFF6FF;
+        color: #1D4ED8;
+    }
 
     h2 {
         font-size: 1.125rem;
