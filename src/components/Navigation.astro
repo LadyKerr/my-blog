@@ -1,0 +1,117 @@
+---
+const menuItems = [
+    { text: "Home", href: "/", active: true },
+    { text: "About", href: "/about" },
+    { text: "Newsletter", href: "/newsletter" },
+    { text: "Contact", href: "/contact" }
+];
+---
+<nav>
+    <div class="nav-container">
+        <a href="/" class="logo">
+            DevBlog
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </a>
+        <div class="nav-menu">
+            {menuItems.map(item => (
+                <a href={item.href} class={item.active ? 'active' : ''}>
+                    {item.text}
+                </a>
+            ))}
+        </div>
+    </div>
+</nav>
+
+<style>
+    nav {
+        background: white;
+        padding: 1rem 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1F2937;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .dots {
+        display: flex;
+        gap: 4px;
+    }
+
+    .dots span {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+    }
+
+    .dots span:nth-child(1) { background: #84fab0; }
+    .dots span:nth-child(2) { background: #8fd3f4; }
+    .dots span:nth-child(3) { background: #a8e6cf; }
+
+    .nav-menu {
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+    }
+
+    .nav-menu a {
+        color: #4B5563;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+        position: relative;
+    }
+
+    .nav-menu a:hover {
+        color: #1F2937;
+    }
+
+    .nav-menu a.active {
+        color: #1F2937;
+    }
+
+    .nav-menu a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
+    }
+
+    @media (max-width: 768px) {
+        .nav-container {
+            padding: 0 1rem;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+    }
+</style>

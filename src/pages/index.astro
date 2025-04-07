@@ -1,5 +1,6 @@
 ---
-
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <html lang="en">
@@ -8,9 +9,27 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>DevBlog - Developer Journey</title>
+		<link rel="stylesheet" href="/styles/global.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<Navigation />
+		<main>
+			<Hero />
+			<!-- Rest of your content will go here -->
+		</main>
 	</body>
 </html>
+
+<style>
+	body {
+		padding-top: 70px; /* Adjust based on your navigation height */
+	}
+
+	main {
+		min-height: 100vh;
+	}
+</style>
