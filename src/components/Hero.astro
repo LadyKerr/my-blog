@@ -1,0 +1,92 @@
+---
+---
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Sharing My Developer Journey</h1>
+            <p>Tutorials, insights, and lessons learned as a software developer</p>
+        </div>
+    </div>
+    <div class="hero-background"></div>
+</section>
+
+<style>
+    .hero {
+        position: relative;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        padding: 6rem 2rem 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+        z-index: 1;
+    }
+
+    .hero-background::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+        transform: skewY(-5deg);
+        transform-origin: top right;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+        font-size: 1.25rem;
+        color: white;
+        opacity: 0.9;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            padding: 5rem 1rem 3rem;
+            min-height: 280px;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+        }
+    }
+</style>

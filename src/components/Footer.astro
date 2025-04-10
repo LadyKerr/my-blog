@@ -1,0 +1,67 @@
+---
+const currentYear = new Date().getFullYear();
+---
+<footer>
+    <div class="container">
+        <p>
+            Made with <span class="heart">❤️</span> by Dev and Copilot, {currentYear}
+            <a href="https://github.com/LadyKerr/my-blog" target="_blank" rel="noopener noreferrer">check out the repo</a>
+        </p>
+    </div>
+</footer>
+
+<style>
+    footer {
+        padding: 2rem 0;
+        background-color: #F9FAFB;
+        border-top: 1px solid #E5E7EB;
+        margin-top: auto;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+
+    p {
+        color: #4B5563;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .heart {
+        display: inline-block;
+        transform-origin: center;
+        animation: beat 1s ease-out infinite;
+    }
+
+    a {
+        color: #2563EB;
+        text-decoration: none;
+        margin-left: 0.5rem;
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+        color: #1D4ED8;
+        text-decoration: underline;
+    }
+
+    @keyframes beat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    @media (max-width: 640px) {
+        footer {
+            padding: 1.5rem 0;
+        }
+
+        .container {
+            padding: 0 1rem;
+        }
+    }
+</style>

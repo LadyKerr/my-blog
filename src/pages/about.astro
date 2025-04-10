@@ -1,0 +1,205 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>About Me - DevBlog</title>
+		<link rel="stylesheet" href="/styles/global.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="page-wrapper">
+			<Navigation />
+			<main>
+				<section class="about">
+					<div class="container">
+						<div class="about-grid">
+							<div class="about-image">
+								<img src="https://placehold.co/400x500" alt="Your Name" />
+								<div class="social-links">
+									<a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+									<a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">Twitter</a>
+									<a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+								</div>
+							</div>
+							<div class="about-content">
+								<h1>Hi, I'm [Your Name] 👋</h1>
+								<div class="bio">
+									<p>
+										I'm a software developer passionate about building things for the web. 
+										With several years of experience in web development, I love sharing 
+										what I learn along the way.
+									</p>
+									<p>
+										My journey in tech started when [your story here]. Since then, 
+										I've worked with various technologies and have developed a strong 
+										foundation in JavaScript, React, and modern web development practices.
+									</p>
+									<p>
+										When I'm not coding, you can find me [your interests/hobbies]. 
+										I believe in continuous learning and giving back to the developer 
+										community through writing and open source contributions.
+									</p>
+								</div>
+								<div class="skills">
+									<h2>Skills & Technologies</h2>
+									<div class="skill-tags">
+										<span>JavaScript</span>
+										<span>React</span>
+										<span>Node.js</span>
+										<span>TypeScript</span>
+										<span>CSS</span>
+										<span>Git</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>
+
+<style>
+	.page-wrapper {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	main {
+		flex: 1;
+		padding-top: 2rem;
+	}
+
+	.about {
+		padding: 4rem 0;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+
+	.about-grid {
+		display: grid;
+		grid-template-columns: minmax(300px, 400px) 1fr;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	.about-image {
+		position: sticky;
+		top: 100px;
+	}
+
+	.about-image img {
+		width: 100%;
+		border-radius: 12px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+
+	.social-links {
+		margin-top: 1.5rem;
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.social-links a {
+		color: #4B5563;
+		text-decoration: none;
+		font-size: 0.875rem;
+		font-weight: 500;
+		transition: color 0.2s ease;
+	}
+
+	.social-links a:hover {
+		color: #2563EB;
+	}
+
+	.about-content h1 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		color: #1F2937;
+		margin-bottom: 1.5rem;
+	}
+
+	.bio {
+		color: #4B5563;
+		font-size: 1.125rem;
+		line-height: 1.7;
+	}
+
+	.bio p {
+		margin-bottom: 1.5rem;
+	}
+
+	.skills {
+		margin-top: 3rem;
+	}
+
+	.skills h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #1F2937;
+		margin-bottom: 1rem;
+	}
+
+	.skill-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+
+	.skill-tags span {
+		background: #F3F4F6;
+		color: #1F2937;
+		padding: 0.5rem 1rem;
+		border-radius: 999px;
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+
+	@media (max-width: 1024px) {
+		.about-grid {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.about-image {
+			position: static;
+			max-width: 400px;
+			margin: 0 auto;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.about {
+			padding: 2rem 0;
+		}
+
+		.about-content h1 {
+			font-size: 2rem;
+		}
+
+		.bio {
+			font-size: 1rem;
+		}
+
+		.skills h2 {
+			font-size: 1.25rem;
+		}
+	}
+</style>

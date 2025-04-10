@@ -1,0 +1,190 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import PostCard from '../components/PostCard.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Footer from '../components/Footer.astro';
+
+// Sample post data - replace with your actual data source
+const posts = [
+    {
+        title: "Building a Custom React Hook for Managing API Data",
+        description: "Learn how to create a reusable hook for fetching, caching, and managing API data in your React applications.",
+        date: "2024-04-02",
+        image: "https://placehold.co/800x500",
+        tags: ["React", "JavaScript"],
+        href: "/blog/custom-react-hook"
+    },
+    {
+        title: "Mastering CSS Grid: Advanced Layout Techniques",
+        description: "Dive deep into CSS Grid and learn how to create complex, responsive layouts with minimal code.",
+        date: "2024-03-28",
+        image: "https://placehold.co/800x500",
+        tags: ["CSS", "Tutorials"],
+        href: "/blog/css-grid-layouts"
+    },
+    {
+        title: "Understanding JavaScript Promises and Async/Await",
+        description: "A comprehensive guide to working with asynchronous code in JavaScript using modern syntax.",
+        date: "2024-03-20",
+        image: "https://placehold.co/800x500",
+        tags: ["JavaScript"],
+        href: "/blog/javascript-async"
+    }
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>DevBlog - Developer Journey</title>
+		<link rel="stylesheet" href="/styles/global.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="page-wrapper">
+			<Navigation />
+			<main>
+				<Hero />
+				<section class="latest-posts">
+					<div class="container">
+						<header class="section-header">
+							<h2>Latest Posts</h2>
+							<div class="filter-tags">
+								<button class="active">React</button>
+								<button>JavaScript</button>
+								<button>CSS</button>
+								<button>Tutorials</button>
+							</div>
+						</header>
+						<div class="posts-grid">
+							{posts.map(post => (
+								<PostCard {...post} />
+							))}
+						</div>
+					</div>
+				</section>
+				<Newsletter />
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>
+
+<style>
+	.page-wrapper {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	main {
+		flex: 1;
+	}
+
+	body {
+		padding-top: 70px; /* Adjust based on your navigation height */
+	}
+
+	.latest-posts {
+		padding: 3rem 0;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+
+	.section-header {
+		margin-bottom: 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.section-header h2 {
+		font-size: 2rem;
+		font-weight: 700;
+		color: #1F2937;
+	}
+
+	.filter-tags {
+		display: flex;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+
+	.filter-tags button {
+		padding: 0.5rem 1rem;
+		border-radius: 999px;
+		border: none;
+		font-size: 0.875rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	/* Match exact colors with post tags */
+	.filter-tags button:nth-of-type(1) { /* React */
+		background: #3B82F6;
+		color: white;
+	}
+
+	.filter-tags button:nth-of-type(2) { /* JavaScript */
+		background: #FEF3C7;
+		color: #B45309;
+	}
+
+	.filter-tags button:nth-of-type(3) { /* CSS */
+		background: #F3E8FF;
+		color: #6B21A8;
+	}
+
+	.filter-tags button:nth-of-type(4) { /* Tutorials */
+		background: #ECFCCB;
+		color: #3F6212;
+	}
+
+	.filter-tags button:hover {
+		opacity: 0.9;
+	}
+
+	.filter-tags button.active {
+		background: #3B82F6;
+		color: white;
+	}
+
+	.posts-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
+		gap: 1.5rem;
+	}
+
+	@media (max-width: 1024px) {
+		.posts-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.posts-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.container {
+			padding: 0 1rem;
+		}
+
+		.latest-posts {
+			padding: 2rem 0;
+		}
+	}
+</style>

@@ -1,0 +1,183 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    date: string;
+    image: string;
+    tags: string[];
+    href: string;
+}
+
+const { title, description, date, image, tags, href } = Astro.props;
+
+// Helper function to get tag class name
+const getTagClass = (tag: string) => {
+    const tagLower = tag.toLowerCase();
+    return `tag-${tagLower}`;
+};
+---
+<article class="post-card">
+    <div class="post-image">
+        <img src={image} alt={title} width="800" height="500" />
+    </div>
+    <div class="post-content">
+        <div class="post-tags">
+            {tags.map(tag => (
+                <span class={`tag ${getTagClass(tag)}`}>{tag}</span>
+            ))}
+        </div>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <div class="post-footer">
+            <time datetime={date}>{new Date(date).toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            })}</time>
+            <a href={href} class="read-more">Read More</a>
+        </div>
+    </div>
+</article>
+
+<style>
+    .post-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-image {
+        width: 100%;
+        height: 200px; /* Fixed height for consistency */
+        overflow: hidden;
+    }
+
+    .post-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .post-card:hover .post-image img {
+        transform: scale(1.05);
+    }
+
+    .post-content {
+        padding: 1.25rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post-tags {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    /* Tag-specific colors - matching the filter buttons exactly */
+    .tag-react {
+        background: #3B82F6;
+        color: white;
+    }
+
+    .tag-javascript {
+        background: #FEF3C7;
+        color: #B45309;
+    }
+
+    .tag-css {
+        background: #F3E8FF;
+        color: #6B21A8;
+    }
+
+    .tag-tutorials {
+        background: #ECFCCB;
+        color: #3F6212;
+    }
+
+    /* Default tag style if none of the above match */
+    .tag {
+        background: #EFF6FF;
+        color: #1D4ED8;
+    }
+
+    h2 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1F2937;
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+    }
+
+    p {
+        color: #4B5563;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        font-size: 0.875rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        flex: 1;
+    }
+
+    .post-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #6B7280;
+        font-size: 0.75rem;
+        margin-top: auto;
+    }
+
+    .read-more {
+        color: #2563EB;
+        font-weight: 500;
+        font-size: 0.875rem;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .read-more:hover {
+        color: #1D4ED8;
+    }
+
+    @media (max-width: 640px) {
+        .post-image {
+            height: 180px;
+        }
+
+        .post-content {
+            padding: 1rem;
+        }
+
+        h2 {
+            font-size: 1rem;
+        }
+
+        p {
+            font-size: 0.875rem;
+            -webkit-line-clamp: 2;
+        }
+    }
+</style>
